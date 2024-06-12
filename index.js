@@ -1,5 +1,7 @@
-const express = require("express");
+const express = require('express');
 const routes = require("./routes/api");
+require ('dotenv').config()
+require ('./helpers/init_mongodb')
 
 const app = express();
 app.use(routes);
