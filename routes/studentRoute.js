@@ -13,6 +13,7 @@ routes.get("/students", (req, res) => {
 routes.post("/students", (req, res) => {
   res.send({ type: "post Request" });
 });
+
 //update students in the DB
 routes.put("/students/:id", (req, res) => {
   res.send({ type: "Update Request" });
@@ -21,6 +22,9 @@ routes.put("/students/:id", (req, res) => {
 routes.patch("/updateStudent/:id", studentController.updateStudent);
 //get all students
 routes.get("/getAllStudents", studentController.getAllStudents);
+
+//get student by Id
+routes.get("/getStudent/:id", studentController.getStudent);
 
 routes.post("/addstudent", studentController.addstudent);
 //delete a student from the DB
