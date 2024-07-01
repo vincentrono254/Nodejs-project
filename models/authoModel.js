@@ -29,6 +29,6 @@ authSchema.pre('save', async function(next){
     }
 })
 
-const User = mongoose.model("Auth", authSchema);
+const User = mongoose.model("user", authSchema);
 module.exports = User;
 
