@@ -16,20 +16,20 @@ app.listen(process.env.port || 4000, function () {
 });
 
 //handling 404 error
-// app.use((req, res, next)=>{
-//     const err= new Error("Not Found");
-//     err.status = 404
-//     next(err)
-// })
+app.use((req, res, next)=>{
+    const err= new Error("Not Found");
+    err.status = 404
+    next(err)
+})
 
 //Error handler
-// app.use((err, req, res, next)=>{
-//     res.status(err.status || 500)
-//     res.send({
-//         error: {
-//             status: err.status|| 500,
-//             message:'err.message'
+app.use((err, req, res, next)=>{
+    res.status(err.status || 500)
+    res.send({
+        error: {
+            status: err.status|| 500,
+            message:err.message
 
-//         }
-//     })
-// })
+        }
+    })
+})

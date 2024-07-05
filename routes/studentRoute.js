@@ -1,8 +1,8 @@
 const express = require("express");
 const routes = express.Router();
-
 const Student = require("../models/students");
 const studentController = require("../controller/studentController");
+const { verifyAccessToken } = require("../helpers/jwtHelpers");
 
 //get a list of student from database
 routes.get("/students", (req, res) => {
@@ -21,7 +21,7 @@ routes.put("/students/:id", (req, res) => {
 //patch update
 routes.patch("/updateStudent/:id", studentController.updateStudent);
 //get all students
-routes.get("/getAllStudents", studentController.getAllStudents);
+routes.get("/getAllStudents", verifyAccessToken, studentController.getAllStudents);  
 
 //get student by Id
 routes.get("/getStudent/:id", studentController.getStudent);
